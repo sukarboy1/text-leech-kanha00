@@ -22,11 +22,11 @@ from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-bot = Client(
-    "bot",
-    api_id=api_id,
-    api_hash=api_hash,
-    bot_token=bot_token)
+bot = Client("bot",
+             bot_token= "6883697340:AAHzIXSXLniDX_OOO-tSV--S99K5zgep0MM",
+             api_id= 20945078,
+             api_hash= "93f6b8ce4bb0ab61b4c7e42187f2aa64",)
+auth_users = [1664376941,-1002055411492,-1002026611663,-1001822625833,-1001998179522,-1001822625833,-1001996908417]
 
 
 @bot.on_message(filters.command(["start"]))
@@ -43,14 +43,14 @@ async def account_login(bot: Client, m: Message):
             ]))
 
 
-@bot.on_message(filters.command("stop"))
+@bot.on_message(filters.command("stop")&(filters.chat(auth_users)))
 async def restart_handler(_, m):
     await m.reply_text("♦ 𝐒𝐭𝐨𝐩𝐩𝐞𝐭 ♦", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 
-@bot.on_message(filters.command(["txt"]))
+@bot.on_message(filters.command(["txt"])&(filters.chat(auth_users)))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text('𝐓𝐨 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐀 𝐓𝐱𝐭 𝐅𝐢𝐥𝐞 𝐒𝐞𝐧𝐝 𝐇𝐞𝐫𝐞 ⏍')
     input: Message = await bot.listen(editable.chat.id)
