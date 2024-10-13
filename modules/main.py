@@ -23,10 +23,10 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 bot = Client("bot",
-             bot_token= "6883697340:AAHzIXSXLniDX_OOO-tSV--S99K5zgep0MM",
-             api_id= 20945078,
-             api_hash= "93f6b8ce4bb0ab61b4c7e42187f2aa64",)
-auth_users = [1664376941,-1002055411492,-1002026611663,-1001822625833,-1001998179522,-1001822625833,-1001996908417]
+             bot_token= "",
+             api_id= ,
+             api_hash= "",)
+
 
 
 @bot.on_message(filters.command(["start"]))
